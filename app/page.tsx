@@ -171,68 +171,128 @@ export default function Home() {
       {/* ─── Hero ─── */}
       <section
         id="home"
-        className="min-h-screen bg-[#1b2b5e] relative overflow-hidden flex items-center"
+        className="min-h-screen relative overflow-hidden flex items-center"
       >
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#c4993a] via-[#e8c06a] to-[#c4993a]" />
-        <div className="absolute top-[-8%] right-[-4%] w-[680px] h-[680px] rounded-full border border-[#f8f5ee]/[0.04]" />
-        <div className="absolute top-[-3%] right-[2%] w-[480px] h-[480px] rounded-full border border-[#f8f5ee]/[0.06]" />
-        <div className="absolute bottom-[-18%] left-[-8%] w-[560px] h-[560px] rounded-full bg-[#2d3f7b]/35" />
+        {/* Background campus image */}
+        <Image
+          src="/hero-campus.jpg"
+          alt="University campus"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Overlays: navy gradient left + dark tint overall */}
+        <div className="absolute inset-0 bg-[#1b2b5e]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1b2b5e]/95 via-[#1b2b5e]/70 to-[#1b2b5e]/30" />
 
-        <div className="max-w-7xl mx-auto px-6 pt-28 pb-24 grid md:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
-          <div>
-            <div className="inline-flex items-center gap-2.5 bg-[#c4993a]/15 border border-[#c4993a]/30 rounded-full px-4 py-1.5 mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#c4993a] animate-pulse flex-shrink-0" />
-              <span className="text-[#c4993a] text-sm font-medium tracking-wide">
-                {t.hero.badge}
-              </span>
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#c4993a] via-[#e8c06a] to-[#c4993a]" />
+
+        <div className="relative w-full flex flex-col">
+          {/* Main content row */}
+          <div className="max-w-7xl mx-auto px-6 pt-32 pb-12 grid md:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
+            {/* Left: headline + CTAs */}
+            <div>
+              <div className="inline-flex items-center gap-2.5 bg-[#c4993a]/15 border border-[#c4993a]/30 rounded-full px-4 py-1.5 mb-8">
+                <span className="w-2 h-2 rounded-full bg-[#c4993a] animate-pulse flex-shrink-0" />
+                <span className="text-[#c4993a] text-sm font-medium tracking-wide">
+                  {t.hero.badge}
+                </span>
+              </div>
+
+              <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-[#f8f5ee] leading-[1.05] mb-6">
+                {t.hero.line1}
+                <br />
+                <span className="text-[#c4993a]">{t.hero.line2}</span>
+                <br />
+                {t.hero.line3}
+              </h1>
+
+              <p className="text-[#f8f5ee]/70 text-lg leading-relaxed mb-10 max-w-[420px]">
+                {t.hero.sub}
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <button
+                  onClick={() => scrollTo("#contact")}
+                  className="px-8 py-4 bg-[#c4993a] text-[#f8f5ee] font-semibold rounded-full hover:bg-[#b08730] transition-all duration-300 shadow-lg shadow-[#c4993a]/25"
+                >
+                  {t.hero.cta1}
+                </button>
+                <button
+                  onClick={() => scrollTo("#services")}
+                  className="px-8 py-4 border border-[#f8f5ee]/25 text-[#f8f5ee] font-semibold rounded-full hover:border-[#f8f5ee]/50 hover:bg-[#f8f5ee]/5 transition-all duration-300"
+                >
+                  {t.hero.cta2}
+                </button>
+              </div>
             </div>
 
-            <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-[#f8f5ee] leading-[1.05] mb-6">
-              {t.hero.line1}
-              <br />
-              <span className="text-[#c4993a]">{t.hero.line2}</span>
-              <br />
-              {t.hero.line3}
-            </h1>
+            {/* Right: services & destinations panel */}
+            <div className="bg-[#f8f5ee]/[0.07] backdrop-blur-sm border border-[#f8f5ee]/[0.12] rounded-3xl p-7 space-y-6">
+              {/* Destinations */}
+              <div>
+                <p className="text-[#c4993a] text-xs font-semibold tracking-[0.15em] uppercase mb-3">
+                  {t.destinations.label}
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  {t.destinations.items.map((d) => (
+                    <div
+                      key={d.country}
+                      className="flex items-center gap-2 bg-[#f8f5ee]/[0.08] rounded-xl px-3 py-2"
+                    >
+                      <span className="text-lg leading-none">{d.flag}</span>
+                      <span className="text-[#f8f5ee]/80 text-xs font-medium leading-tight">
+                        {d.country}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-            <p className="text-[#f8f5ee]/70 text-lg leading-relaxed mb-10 max-w-[420px]">
-              {t.hero.sub}
-            </p>
+              <div className="border-t border-[#f8f5ee]/[0.1]" />
 
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={() => scrollTo("#contact")}
-                className="px-8 py-4 bg-[#c4993a] text-[#f8f5ee] font-semibold rounded-full hover:bg-[#b08730] transition-all duration-300 shadow-lg shadow-[#c4993a]/25"
-              >
-                {t.hero.cta1}
-              </button>
-              <button
-                onClick={() => scrollTo("#services")}
-                className="px-8 py-4 border border-[#f8f5ee]/25 text-[#f8f5ee] font-semibold rounded-full hover:border-[#f8f5ee]/50 hover:bg-[#f8f5ee]/5 transition-all duration-300"
-              >
-                {t.hero.cta2}
-              </button>
+              {/* Services list */}
+              <div>
+                <p className="text-[#c4993a] text-xs font-semibold tracking-[0.15em] uppercase mb-3">
+                  {t.services.label}
+                </p>
+                <ul className="space-y-2">
+                  {t.services.items.map((s) => (
+                    <li key={s.number} className="flex items-start gap-3">
+                      <span className="mt-1 w-4 h-4 rounded-full border border-[#c4993a]/50 flex items-center justify-center flex-shrink-0">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#c4993a]" />
+                      </span>
+                      <span className="text-[#f8f5ee]/80 text-sm leading-snug">
+                        {s.title}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {t.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-[#f8f5ee]/[0.05] border border-[#f8f5ee]/[0.09] rounded-2xl p-6 hover:bg-[#f8f5ee]/[0.09] transition-colors duration-300"
-              >
-                <div className="font-[family-name:var(--font-playfair)] text-4xl font-bold text-[#c4993a] mb-1">
-                  {stat.value}
+          {/* Stats bar */}
+          <div className="max-w-7xl mx-auto px-6 pb-16 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#f8f5ee]/[0.1] rounded-2xl overflow-hidden">
+              {t.stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="bg-[#f8f5ee]/[0.05] px-6 py-5 text-center hover:bg-[#f8f5ee]/[0.1] transition-colors duration-300"
+                >
+                  <div className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-[#c4993a]">
+                    {stat.value}
+                  </div>
+                  <div className="text-[#f8f5ee]/55 text-xs mt-1">{stat.label}</div>
                 </div>
-                <div className="text-[#f8f5ee]/60 text-sm">{stat.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#f8f5ee]/35 pointer-events-none">
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#f8f5ee]/35 pointer-events-none">
           <span className="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-[#f8f5ee]/35 to-transparent" />
+          <div className="w-px h-8 bg-gradient-to-b from-[#f8f5ee]/35 to-transparent" />
         </div>
       </section>
 
