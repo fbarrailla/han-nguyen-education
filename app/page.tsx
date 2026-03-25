@@ -334,7 +334,7 @@ export default function Home() {
               { src: "/logo-gles.JPG", alt: "GLES" },
               { src: "/logo-keta.JPG", alt: "KETA" },
             ].map((logo) => (
-              <div key={logo.alt} className="relative h-28 w-56 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <div key={logo.alt} className="relative h-28 w-56">
                 <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
               </div>
             ))}
