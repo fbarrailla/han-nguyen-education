@@ -284,7 +284,7 @@ export const translations = {
       contacts: [
         { icon: "✉", label: "Email", value: "eleazarnguyen@gmail.com" },
         { icon: "☎", label: "Điện thoại / Zalo", value: "+84969060413" },
-        { icon: "◎", label: "Địa chỉ", value: "Thành phố Hồ Chí Minh, Việt Nam" },
+        { icon: "◎", label: "Địa chỉ", value: "31 Đường 5A, Cư Xá Bình Thới, TP. HCM" },
       ],
       form: {
         name: "Họ và tên",
