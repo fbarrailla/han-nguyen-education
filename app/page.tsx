@@ -1,13 +1,40 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
 import { translations, type Lang } from "./translations";
+
+const EMAILJS_SERVICE_ID = "service_nop1bn9";
+const EMAILJS_TEMPLATE_ID = "template_3yov3hs";
+const EMAILJS_PUBLIC_KEY = "-BGhKDSFxI8D8E1hT";
+
+type FormState = "idle" | "sending" | "success" | "error";
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("vi");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [formState, setFormState] = useState<FormState>("idle");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    setFormState("sending");
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      );
+      setFormState("success");
+      formRef.current.reset();
+    } catch {
+      setFormState("error");
+    }
+  };
 
   const t = translations[lang];
 
@@ -577,69 +604,112 @@ export default function Home() {
             </div>
 
             <div className="bg-[#f8f5ee]/[0.04] border border-[#f8f5ee]/[0.09] rounded-3xl p-8">
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid sm:grid-cols-2 gap-5">
+              {formState === "success" ? (
+                <div className="flex flex-col items-center justify-center h-full py-16 text-center">
+                  <div className="w-16 h-16 rounded-full bg-[#c4993a]/20 border border-[#c4993a]/40 flex items-center justify-center mb-5">
+                    <svg className="w-7 h-7 text-[#c4993a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-[#f8f5ee] font-semibold text-lg mb-2">
+                    {lang === "vi" ? "Gửi thành công!" : "Message sent!"}
+                  </p>
+                  <p className="text-[#f8f5ee]/55 text-sm">
+                    {lang === "vi"
+                      ? "Tôi sẽ liên hệ lại với bạn sớm nhất có thể."
+                      : "I'll get back to you as soon as possible."}
+                  </p>
+                  <button
+                    onClick={() => setFormState("idle")}
+                    className="mt-6 text-[#c4993a] text-sm underline underline-offset-2"
+                  >
+                    {lang === "vi" ? "Gửi tin nhắn khác" : "Send another message"}
+                  </button>
+                </div>
+              ) : (
+                <form ref={formRef} className="space-y-5" onSubmit={handleSubmit}>
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="text-[#f8f5ee]/60 text-xs uppercase tracking-wider mb-2 block">
+                        {t.contact.form.name}
+                      </label>
+                      <input
+                        type="text"
+                        name="from_name"
+                        required
+                        placeholder={t.contact.form.namePlaceholder}
+                        className="w-full bg-[#f8f5ee]/[0.06] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee] placeholder-[#f8f5ee]/25 focus:outline-none focus:border-[#c4993a]/60 transition-colors text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[#f8f5ee]/60 text-xs uppercase tracking-wider mb-2 block">
+                        {t.contact.form.phone}
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder={t.contact.form.phonePlaceholder}
+                        className="w-full bg-[#f8f5ee]/[0.06] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee] placeholder-[#f8f5ee]/25 focus:outline-none focus:border-[#c4993a]/60 transition-colors text-sm"
+                      />
+                    </div>
+                  </div>
                   <div>
                     <label className="text-[#f8f5ee]/60 text-xs uppercase tracking-wider mb-2 block">
-                      {t.contact.form.name}
+                      {t.contact.form.email}
                     </label>
                     <input
-                      type="text"
-                      placeholder={t.contact.form.namePlaceholder}
+                      type="email"
+                      name="from_email"
+                      required
+                      placeholder={t.contact.form.emailPlaceholder}
                       className="w-full bg-[#f8f5ee]/[0.06] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee] placeholder-[#f8f5ee]/25 focus:outline-none focus:border-[#c4993a]/60 transition-colors text-sm"
                     />
                   </div>
                   <div>
                     <label className="text-[#f8f5ee]/60 text-xs uppercase tracking-wider mb-2 block">
-                      {t.contact.form.phone}
+                      {t.contact.form.service}
                     </label>
-                    <input
-                      type="tel"
-                      placeholder={t.contact.form.phonePlaceholder}
-                      className="w-full bg-[#f8f5ee]/[0.06] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee] placeholder-[#f8f5ee]/25 focus:outline-none focus:border-[#c4993a]/60 transition-colors text-sm"
+                    <select
+                      name="service"
+                      className="w-full bg-[#1b2b5e] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee]/80 focus:outline-none focus:border-[#c4993a]/60 transition-colors text-sm"
+                    >
+                      <option value="">{t.contact.form.servicePlaceholder}</option>
+                      {t.contact.form.serviceOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="text-[#f8f5ee]/60 text-xs uppercase tracking-wider mb-2 block">
+                      {t.contact.form.message}
+                    </label>
+                    <textarea
+                      rows={4}
+                      name="message"
+                      placeholder={t.contact.form.messagePlaceholder}
+                      className="w-full bg-[#f8f5ee]/[0.06] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee] placeholder-[#f8f5ee]/25 focus:outline-none focus:border-[#c4993a]/60 transition-colors resize-none text-sm"
                     />
                   </div>
-                </div>
-                <div>
-                  <label className="text-[#f8f5ee]/60 text-xs uppercase tracking-wider mb-2 block">
-                    {t.contact.form.email}
-                  </label>
-                  <input
-                    type="email"
-                    placeholder={t.contact.form.emailPlaceholder}
-                    className="w-full bg-[#f8f5ee]/[0.06] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee] placeholder-[#f8f5ee]/25 focus:outline-none focus:border-[#c4993a]/60 transition-colors text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="text-[#f8f5ee]/60 text-xs uppercase tracking-wider mb-2 block">
-                    {t.contact.form.service}
-                  </label>
-                  <select className="w-full bg-[#1b2b5e] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee]/80 focus:outline-none focus:border-[#c4993a]/60 transition-colors text-sm">
-                    <option value="">{t.contact.form.servicePlaceholder}</option>
-                    {t.contact.form.serviceOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="text-[#f8f5ee]/60 text-xs uppercase tracking-wider mb-2 block">
-                    {t.contact.form.message}
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder={t.contact.form.messagePlaceholder}
-                    className="w-full bg-[#f8f5ee]/[0.06] border border-[#f8f5ee]/[0.13] rounded-xl px-4 py-3 text-[#f8f5ee] placeholder-[#f8f5ee]/25 focus:outline-none focus:border-[#c4993a]/60 transition-colors resize-none text-sm"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-[#c4993a] text-[#f8f5ee] font-semibold rounded-xl hover:bg-[#b08730] transition-colors duration-300 shadow-lg shadow-[#c4993a]/20"
-                >
-                  {t.contact.form.submit}
-                </button>
-              </form>
+                  {formState === "error" && (
+                    <p className="text-red-400 text-sm text-center">
+                      {lang === "vi"
+                        ? "Có lỗi xảy ra. Vui lòng thử lại."
+                        : "Something went wrong. Please try again."}
+                    </p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={formState === "sending"}
+                    className="w-full py-4 bg-[#c4993a] text-[#f8f5ee] font-semibold rounded-xl hover:bg-[#b08730] transition-colors duration-300 shadow-lg shadow-[#c4993a]/20 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {formState === "sending"
+                      ? lang === "vi" ? "Đang gửi..." : "Sending..."
+                      : t.contact.form.submit}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
