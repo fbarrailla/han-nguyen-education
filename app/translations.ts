@@ -130,7 +130,7 @@ export const translations = {
       contacts: [
         { icon: "✉", label: "Email", value: "eleazarnguyen@gmail.com" },
         { icon: "☎", label: "Phone / Zalo", value: "+84969060413" },
-        { icon: "◎", label: "Location", value: "31 Đường 5A, Cư Xá Bình Thới, TP. HCM" },
+        { icon: "◎", label: "Location", value: "31 Duong 5A, Cu Xa Binh Thoi, TP HCMC" },
       ],
       form: {
         name: "Full Name",
