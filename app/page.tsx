@@ -591,13 +591,19 @@ export default function Home() {
               </div>
 
               <div className="flex gap-3">
-                {["Facebook", "Zalo", "LinkedIn"].map((social) => (
+                {[
+                  { label: "Facebook", href: "https://www.facebook.com/han.nguyen.16121" },
+                  { label: "Zalo", href: "https://zalo.me/84969060413" },
+                  { label: "LinkedIn", href: "https://www.linkedin.com/in/chau-au-han-046483156/" },
+                ].map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-4 py-2 border border-[#f8f5ee]/20 text-[#f8f5ee]/60 text-sm rounded-full hover:border-[#c4993a] hover:text-[#c4993a] transition-colors duration-300"
                   >
-                    {social}
+                    {social.label}
                   </a>
                 ))}
               </div>
