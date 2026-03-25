@@ -128,7 +128,7 @@ export const translations = {
       heading: "Start Your Journey Today",
       sub: "Book a free 30-minute consultation to discuss your goals and how I can help you get there.",
       contacts: [
-        { icon: "✉", label: "Email", value: "han.nguyen@education.vn" },
+        { icon: "✉", label: "Email", value: "eleazarnguyen@gmail.com" },
         { icon: "☎", label: "Phone / Zalo", value: "+84969060413" },
         { icon: "◎", label: "Location", value: "Ho Chi Minh City, Vietnam" },
       ],
@@ -282,7 +282,7 @@ export const translations = {
       heading: "Bắt Đầu Hành Trình Của Bạn Hôm Nay",
       sub: "Đặt lịch tư vấn miễn phí 30 phút để cùng thảo luận mục tiêu và cách tôi có thể giúp bạn đạt được điều đó.",
       contacts: [
-        { icon: "✉", label: "Email", value: "han.nguyen@education.vn" },
+        { icon: "✉", label: "Email", value: "eleazarnguyen@gmail.com" },
         { icon: "☎", label: "Điện thoại / Zalo", value: "+84969060413" },
         { icon: "◎", label: "Địa chỉ", value: "Thành phố Hồ Chí Minh, Việt Nam" },
       ],
