@@ -1,0 +1,311 @@
+export type Lang = "en" | "vi";
+
+export const translations = {
+  en: {
+    nav: {
+      about: "About",
+      services: "Services",
+      destinations: "Destinations",
+      testimonials: "Testimonials",
+      contact: "Contact",
+      cta: "Book Consultation",
+    },
+    hero: {
+      badge: "Education Consultant · Ho Chi Minh City",
+      line1: "Your Bridge",
+      line2: "to the World's",
+      line3: "Best Universities",
+      sub: "I help Vietnamese students navigate the path to studying in the USA, UK, Canada, Australia, Singapore, and Europe — from first inquiry to enrolled student.",
+      cta1: "Book Free Consultation",
+      cta2: "Explore Services",
+    },
+    stats: [
+      { value: "500+", label: "Students Helped" },
+      { value: "98%", label: "Visa Approval Rate" },
+      { value: "8+", label: "Years Experience" },
+      { value: "15+", label: "Partner Universities" },
+    ],
+    about: {
+      label: "About Han Nguyen",
+      heading: "Passionate About Opening Doors for Vietnamese Students",
+      p1: "For over 8 years, I've dedicated my career to helping Vietnamese students turn their dreams of international education into reality. I understand the hopes families place in education — and the complexity of making it happen.",
+      p2: "I work directly with students and families to navigate every step: choosing the right program, preparing applications, securing visas, and ensuring a smooth transition abroad. My approach is personal, thorough, and results-driven.",
+      p3: "Whether your goal is a degree from a US university, a UK college experience, or a fresh start in Singapore — I have the expertise and network to make it possible.",
+      tags: ["Study Abroad", "Visa Specialist", "IELTS / TOEIC", "SAT Prep", "University Applications"],
+      badge: "Years of Experience",
+    },
+    services: {
+      label: "What I Offer",
+      heading: "Services Designed Around Your Goals",
+      sub: "Comprehensive support from your first consultation through to your first day of class.",
+      items: [
+        {
+          number: "01",
+          title: "Study Abroad Consulting",
+          description: "Comprehensive guidance for studying in the USA, UK, Canada, Australia, Singapore, and Europe — from school selection to enrollment.",
+          detail: "Program matching · Scholarship guidance · Application strategy",
+        },
+        {
+          number: "02",
+          title: "Visa Application Support",
+          description: "Expert assistance with Travel Visas, Education Visas, and Visiting Visas. Maximize your approval chances with thorough preparation.",
+          detail: "Document preparation · Interview coaching · Follow-up support",
+        },
+        {
+          number: "03",
+          title: "English Language Programs",
+          description: "Tailored preparation for IELTS, TOEIC, TPE, and SAT examinations with proven study plans and experienced instructors.",
+          detail: "IELTS · TOEIC · TPE · SAT preparation",
+        },
+        {
+          number: "04",
+          title: "University Applications",
+          description: "End-to-end support for university applications — personal statements, recommendation letters, and interview preparation.",
+          detail: "Personal statements · LOR guidance · Mock interviews",
+        },
+      ],
+    },
+    destinations: {
+      label: "Study Destinations",
+      heading: "Your Future Awaits in 6 Countries",
+      items: [
+        { country: "United States", flag: "🇺🇸", description: "Ivy League & top research universities" },
+        { country: "United Kingdom", flag: "🇬🇧", description: "Oxford, Cambridge & Russell Group" },
+        { country: "Canada", flag: "🇨🇦", description: "World-class education, PR pathways" },
+        { country: "Australia", flag: "🇦🇺", description: "Group of Eight universities, vibrant lifestyle" },
+        { country: "Singapore", flag: "🇸🇬", description: "Asia's education hub — NUS & NTU" },
+        { country: "Europe", flag: "🇪🇺", description: "Germany, Netherlands, France & more" },
+      ],
+    },
+    why: {
+      label: "Why Han Nguyen",
+      heading: "The Difference Experience Makes",
+      items: [
+        {
+          title: "Proven Track Record",
+          description: "Over 500 Vietnamese students successfully placed in top international universities across 6 countries.",
+        },
+        {
+          title: "End-to-End Support",
+          description: "From initial consultation to arrival support — I'm with you at every step of your journey abroad.",
+        },
+        {
+          title: "Personalized Guidance",
+          description: "No cookie-cutter advice. Every student receives a tailored strategy built around their goals and academic profile.",
+        },
+        {
+          title: "Transparent & Honest",
+          description: "Clear communication, realistic assessments, and no hidden fees. Your trust is my most valuable asset.",
+        },
+      ],
+    },
+    testimonials: {
+      label: "Student Stories",
+      heading: "What My Students Say",
+      items: [
+        {
+          quote: "Han's guidance was transformative. She helped me secure admission to the University of Toronto with a scholarship I didn't even know I was eligible for.",
+          name: "Minh Tran",
+          detail: "University of Toronto, Canada · Class of 2023",
+          initials: "MT",
+        },
+        {
+          quote: "My visa was rejected twice before I found Han. With her coaching, I had everything perfectly prepared and got approved on my very first try.",
+          name: "Linh Pham",
+          detail: "University of Edinburgh, UK · Class of 2024",
+          initials: "LP",
+        },
+        {
+          quote: "From IELTS preparation to my acceptance at NUS, Han was by my side throughout the entire process. I couldn't have done it without her expertise.",
+          name: "Duc Nguyen",
+          detail: "National University of Singapore · Class of 2022",
+          initials: "DN",
+        },
+      ],
+    },
+    contact: {
+      label: "Get in Touch",
+      heading: "Start Your Journey Today",
+      sub: "Book a free 30-minute consultation to discuss your goals and how I can help you get there.",
+      contacts: [
+        { icon: "✉", label: "Email", value: "han.nguyen@education.vn" },
+        { icon: "☎", label: "Phone / Zalo", value: "+84 900 000 000" },
+        { icon: "◎", label: "Location", value: "Ho Chi Minh City, Vietnam" },
+      ],
+      form: {
+        name: "Full Name",
+        namePlaceholder: "Your name",
+        phone: "Phone / Zalo",
+        phonePlaceholder: "+84 ...",
+        email: "Email",
+        emailPlaceholder: "your@email.com",
+        service: "Service of Interest",
+        servicePlaceholder: "Select a service...",
+        serviceOptions: [
+          { value: "study", label: "Study Abroad Consulting" },
+          { value: "visa", label: "Visa Application" },
+          { value: "english", label: "English Language Programs" },
+          { value: "university", label: "University Applications" },
+        ],
+        message: "Message",
+        messagePlaceholder: "Tell me about your goals...",
+        submit: "Send Message",
+      },
+    },
+    footer: "Han Nguyen — Education Consultant",
+  },
+
+  vi: {
+    nav: {
+      about: "Giới thiệu",
+      services: "Dịch vụ",
+      destinations: "Điểm đến",
+      testimonials: "Học viên",
+      contact: "Liên hệ",
+      cta: "Đặt lịch tư vấn",
+    },
+    hero: {
+      badge: "Tư vấn du học · Thành phố Hồ Chí Minh",
+      line1: "Cầu Nối Của Bạn",
+      line2: "Đến Những Trường",
+      line3: "Đại Học Tốt Nhất",
+      sub: "Tôi giúp học sinh Việt Nam chinh phục con đường du học tại Mỹ, Anh, Canada, Úc, Singapore và châu Âu — từ bước tư vấn đầu tiên đến khi nhập học.",
+      cta1: "Đặt lịch tư vấn miễn phí",
+      cta2: "Xem dịch vụ",
+    },
+    stats: [
+      { value: "500+", label: "Học sinh được hỗ trợ" },
+      { value: "98%", label: "Tỷ lệ đỗ visa" },
+      { value: "8+", label: "Năm kinh nghiệm" },
+      { value: "15+", label: "Trường đại học đối tác" },
+    ],
+    about: {
+      label: "Giới thiệu về Hân Nguyễn",
+      heading: "Luôn Tận Tâm Mở Ra Cánh Cửa Tương Lai Cho Học Sinh Việt Nam",
+      p1: "Hơn 8 năm qua, tôi đã dành trọn tâm huyết để giúp học sinh Việt Nam biến ước mơ du học thành hiện thực. Tôi hiểu những kỳ vọng mà gia đình đặt vào việc học — và sự phức tạp để biến điều đó thành sự thật.",
+      p2: "Tôi làm việc trực tiếp với học sinh và gia đình để hướng dẫn từng bước: lựa chọn chương trình phù hợp, chuẩn bị hồ sơ, xin visa và đảm bảo quá trình chuyển tiếp thuận lợi. Phương châm của tôi là cá nhân hóa, tận tâm và hiệu quả.",
+      p3: "Dù mục tiêu của bạn là bằng cấp từ đại học Mỹ, trải nghiệm học tại Anh hay khởi đầu mới tại Singapore — tôi có đủ chuyên môn và mạng lưới để biến điều đó thành hiện thực.",
+      tags: ["Du học", "Chuyên gia visa", "IELTS / TOEIC", "Luyện SAT", "Hồ sơ đại học"],
+      badge: "Năm kinh nghiệm",
+    },
+    services: {
+      label: "Dịch vụ của tôi",
+      heading: "Dịch Vụ Được Thiết Kế Theo Mục Tiêu Của Bạn",
+      sub: "Hỗ trợ toàn diện từ buổi tư vấn đầu tiên cho đến ngày đầu tiên bạn đến trường.",
+      items: [
+        {
+          number: "01",
+          title: "Tư vấn du học",
+          description: "Hướng dẫn toàn diện cho việc du học tại Mỹ, Anh, Canada, Úc, Singapore và châu Âu — từ chọn trường đến nhập học.",
+          detail: "Tư vấn chương trình · Học bổng · Chiến lược hồ sơ",
+        },
+        {
+          number: "02",
+          title: "Hỗ trợ xin visa",
+          description: "Hỗ trợ chuyên nghiệp cho visa du lịch, visa du học và visa thăm thân. Tối đa hóa cơ hội được chấp thuận.",
+          detail: "Chuẩn bị hồ sơ · Luyện phỏng vấn · Hỗ trợ sau nộp",
+        },
+        {
+          number: "03",
+          title: "Luyện thi tiếng Anh",
+          description: "Ôn luyện bài bản cho các kỳ thi IELTS, TOEIC, TPE và SAT với giáo trình được kiểm chứng và giảng viên giàu kinh nghiệm.",
+          detail: "IELTS · TOEIC · TPE · Luyện thi SAT",
+        },
+        {
+          number: "04",
+          title: "Hồ sơ đại học",
+          description: "Hỗ trợ toàn bộ quá trình nộp hồ sơ đại học — bài luận cá nhân, thư giới thiệu và luyện phỏng vấn.",
+          detail: "Bài luận cá nhân · Thư giới thiệu · Phỏng vấn thử",
+        },
+      ],
+    },
+    destinations: {
+      label: "Điểm đến du học",
+      heading: "Tương Lai Của Bạn Đang Chờ Ở 6 Quốc Gia",
+      items: [
+        { country: "Hoa Kỳ", flag: "🇺🇸", description: "Ivy League & các đại học nghiên cứu hàng đầu" },
+        { country: "Vương quốc Anh", flag: "🇬🇧", description: "Oxford, Cambridge & Russell Group" },
+        { country: "Canada", flag: "🇨🇦", description: "Giáo dục đẳng cấp, lộ trình định cư" },
+        { country: "Úc", flag: "🇦🇺", description: "Nhóm 8 trường đại học, lối sống sôi động" },
+        { country: "Singapore", flag: "🇸🇬", description: "Trung tâm giáo dục châu Á — NUS & NTU" },
+        { country: "Châu Âu", flag: "🇪🇺", description: "Đức, Hà Lan, Pháp và nhiều hơn nữa" },
+      ],
+    },
+    why: {
+      label: "Tại sao chọn tôi",
+      heading: "Sự Khác Biệt Đến Từ Kinh Nghiệm",
+      items: [
+        {
+          title: "Thành tích đã được kiểm chứng",
+          description: "Hơn 500 học sinh Việt Nam đã được đặt vào các trường đại học quốc tế hàng đầu tại 6 quốc gia.",
+        },
+        {
+          title: "Hỗ trợ từ đầu đến cuối",
+          description: "Từ tư vấn ban đầu đến hỗ trợ khi đến nơi — tôi đồng hành cùng bạn ở mọi bước trên hành trình.",
+        },
+        {
+          title: "Tư vấn cá nhân hóa",
+          description: "Không có giải pháp chung chung. Mỗi học sinh đều nhận được chiến lược riêng phù hợp với mục tiêu và hồ sơ học tập.",
+        },
+        {
+          title: "Minh bạch & Trung thực",
+          description: "Giao tiếp rõ ràng, đánh giá thực tế và không có phí ẩn. Sự tin tưởng của bạn là tài sản quý giá nhất của tôi.",
+        },
+      ],
+    },
+    testimonials: {
+      label: "Câu chuyện học viên",
+      heading: "Học Viên Nói Gì Về Tôi",
+      items: [
+        {
+          quote: "Sự hướng dẫn của chị Hân đã thay đổi cuộc đời em. Chị giúp em đỗ vào Đại học Toronto kèm học bổng mà em không biết mình đủ điều kiện nhận.",
+          name: "Minh Trần",
+          detail: "Đại học Toronto, Canada · Khóa 2023",
+          initials: "MT",
+        },
+        {
+          quote: "Visa của em bị từ chối hai lần trước khi tìm đến chị Hân. Với sự hướng dẫn của chị, em chuẩn bị hoàn hảo và được chấp thuận ngay lần đầu.",
+          name: "Linh Phạm",
+          detail: "Đại học Edinburgh, Anh · Khóa 2024",
+          initials: "LP",
+        },
+        {
+          quote: "Từ luyện thi IELTS đến khi nhận thư đỗ NUS, chị Hân luôn đồng hành cùng em trong suốt quá trình. Em không thể làm được nếu không có chị.",
+          name: "Đức Nguyễn",
+          detail: "Đại học Quốc gia Singapore · Khóa 2022",
+          initials: "ĐN",
+        },
+      ],
+    },
+    contact: {
+      label: "Liên hệ",
+      heading: "Bắt Đầu Hành Trình Của Bạn Hôm Nay",
+      sub: "Đặt lịch tư vấn miễn phí 30 phút để cùng thảo luận mục tiêu và cách tôi có thể giúp bạn đạt được điều đó.",
+      contacts: [
+        { icon: "✉", label: "Email", value: "han.nguyen@education.vn" },
+        { icon: "☎", label: "Điện thoại / Zalo", value: "+84 900 000 000" },
+        { icon: "◎", label: "Địa chỉ", value: "Thành phố Hồ Chí Minh, Việt Nam" },
+      ],
+      form: {
+        name: "Họ và tên",
+        namePlaceholder: "Tên của bạn",
+        phone: "Điện thoại / Zalo",
+        phonePlaceholder: "+84 ...",
+        email: "Email",
+        emailPlaceholder: "email@cua-ban.com",
+        service: "Dịch vụ quan tâm",
+        servicePlaceholder: "Chọn dịch vụ...",
+        serviceOptions: [
+          { value: "study", label: "Tư vấn du học" },
+          { value: "visa", label: "Xin visa" },
+          { value: "english", label: "Luyện thi tiếng Anh" },
+          { value: "university", label: "Hồ sơ đại học" },
+        ],
+        message: "Lời nhắn",
+        messagePlaceholder: "Hãy cho tôi biết mục tiêu của bạn...",
+        submit: "Gửi tin nhắn",
+      },
+    },
+    footer: "Hân Nguyễn — Tư vấn du học",
+  },
+} as const;
