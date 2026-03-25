@@ -730,6 +730,14 @@ export default function Home() {
           <span className="text-[#f8f5ee]/35 text-sm">
             © {new Date().getFullYear()} Han Nguyen. All rights reserved.
           </span>
+          <a
+            href="https://tontonfrancky.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f8f5ee]/35 text-sm hover:text-[#c4993a] transition-colors duration-300"
+          >
+            Made with ❤️ by Francky
+          </a>
         </div>
       </footer>
     </>
