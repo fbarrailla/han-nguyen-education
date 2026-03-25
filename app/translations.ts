@@ -25,6 +25,7 @@ export const translations = {
       { value: "8+", label: "Years Experience" },
       { value: "15+", label: "Partner Universities" },
     ],
+    partners: "Our Partners",
     about: {
       label: "About Han Nguyen",
       heading: "Passionate About Opening Doors for Vietnamese Students",
@@ -179,6 +180,7 @@ export const translations = {
       { value: "8+", label: "Năm kinh nghiệm" },
       { value: "15+", label: "Trường đại học đối tác" },
     ],
+    partners: "Đối Tác Của Chúng Tôi",
     about: {
       label: "Giới thiệu về Hân Nguyễn",
       heading: "Luôn Tận Tâm Mở Ra Cánh Cửa Tương Lai Cho Học Sinh Việt Nam",

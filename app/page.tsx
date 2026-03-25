@@ -323,6 +323,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── Partners ─── */}
+      <section className="py-14 bg-white border-b border-[#1b2b5e]/[0.06]">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-center text-[#1b2b5e]/40 text-xs font-semibold tracking-[0.2em] uppercase mb-8">
+            {t.partners}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-12">
+            {[
+              { src: "/logo-gles.JPG", alt: "GLES" },
+              { src: "/logo-keta.JPG", alt: "KETA" },
+            ].map((logo) => (
+              <div key={logo.alt} className="relative h-16 w-40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── About ─── */}
       <section id="about" className="py-32 bg-[#f8f5ee]">
         <div className="max-w-7xl mx-auto px-6">
