@@ -5,7 +5,7 @@ import Image from "next/image";
 import emailjs from "@emailjs/browser";
 import { translations, type Lang } from "./translations";
 
-const EMAILJS_SERVICE_ID = "service_nop1bn9";
+const EMAILJS_SERVICE_ID = "service_tacqz0b";
 const EMAILJS_TEMPLATE_ID = "template_3yov3hs";
 const EMAILJS_PUBLIC_KEY = "-BGhKDSFxI8D8E1hT";
 
