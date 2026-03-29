@@ -251,6 +251,14 @@ export default function Home() {
                 >
                   {t.hero.cta2}
                 </button>
+                <a
+                  href="https://visa.han-nguyen-education.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-[#f8f5ee] text-[#1b2b5e] font-semibold rounded-full hover:bg-white transition-all duration-300 shadow-lg"
+                >
+                  {lang === "vi" ? "Nộp Hồ Sơ Visa Online Ngay!" : "Apply Visa Online Now!"}
+                </a>
               </div>
             </div>
 
