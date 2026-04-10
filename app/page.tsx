@@ -619,7 +619,7 @@ export default function Home() {
 
               <div className="flex gap-3">
                 {[
-                  { label: "Facebook", href: "https://www.facebook.com/han.nguyen.16121" },
+                  { label: "Facebook", href: "https://www.facebook.com/share/1Ai9Sz8SUY/" },
                   { label: "Zalo", href: "https://zalo.me/84969060413" },
                   { label: "LinkedIn", href: "https://www.linkedin.com/in/chau-au-han-046483156/" },
                 ].map((social) => (
