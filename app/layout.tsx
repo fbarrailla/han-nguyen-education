@@ -44,7 +44,12 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
+          <p className="text-gray-500 text-lg tracking-wide">Maintenance in progress</p>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
